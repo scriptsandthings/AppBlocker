@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BlockedApps</key>
+	<array>
+		<dict>
+			<key>Application</key>
+			<string>com.apple.InstallAssistant.Catalina</string>
+			<key>DeleteApp</key>
+			<false />
+			<key>AlertUser</key>
+			<true />
+			<key>AlertTitle</key>
+			<string>macOS Catalina is not yet supported.</string>
+			<key>AlertMessage</key>
+			<string>Please contact IT Support for more information and to verify that your current applications will support macOS Catalina.</string>
+		</dict>
+		<dict>
+			<key>Application</key>
+			<string>com.apple.Chess</string>
+			<key>DeleteApp</key>
+			<false />
+			<key>AlertUser</key>
+			<true />
+			<key>AlertTitle</key>
+			<string>The application "{appname}" has been blocked.</string>
+			<key>AlertMessage</key>
+			<string>This app is not allowed.  Contact your IT Support for more information.</string>
+		</dict>
+	</array>
+</dict>
+</plist>
