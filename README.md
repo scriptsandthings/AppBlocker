@@ -86,7 +86,7 @@ The variable `{appname}` can be used to enter the name of the App that is being 
 Run the `AppBlocker.py` script to "install" the service; it will create a launchdaemon and a copy of the `AppBlocker.py` script on the local device here:  `/usr/local/bin/AppBlocker`.
 
 ```
-$ sudo python AppBlocker.py --help
+$ sudo python3 AppBlocker.py --help
 
 usage: AppBlocker.py [-h] --action [run | install | uninstall] --domain
                      com.github.mlbz521.BlockedApps
