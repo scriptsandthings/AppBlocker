@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/opt/ManagedFrameworks/Python.framework/Versions/Current/bin/python3
 """
 ###################################################################################################
 # Script Name:  AppBlocker.py
 # By:  Zack Thompson / Created:  9/21/2019
-# Version:  1.0.0 / Updated:  9/30/2019 / By:  ZT
+# Version:  1.1.0 / Updated:  11/29/2021 / By:  ZT
 #
 # Description:  This scripts creates a framework that allows the blocking of apps based on their bundle
 #               identifiers and pushing the "block list" via a custom configuration profile.
@@ -19,21 +19,18 @@ import importlib
 import logging
 import os
 import platform
+import plistlib
 import re
 import shutil
 import signal
 import subprocess
 import sys
+
 from AppKit import *
 from PyObjCTools import AppHelper
 
-try:
-    from plistlib import dump as custom_plist_Writer  # For Python 3
-except ImportError:
-    from plistlib import writePlist as custom_plist_Writer  # For Python 2
 
-
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 
 def runUtility(command):
@@ -96,7 +93,7 @@ def createDaemon(**parameters):
     }
     
     # Write the LaunchDaemon configuration to disk
-    custom_plist_Writer(launch_daemon_plist, launch_daemon_location)
+    plistlib.dump(launch_daemon_plist, launch_daemon_location)
 
 
 # Check if the LaunchDaemon is running, if so restart it in case a change was made to the plist file.
@@ -126,7 +123,7 @@ def startDaemon(**parameters):
         launchctl_list = '/bin/launchctl list {} > /dev/null 2>&1; echo $?'.format(launch_daemon_label)
         exitCode = runUtility(launchctl_list)
 
-        if not int(exitCode) == 0:
+        if int(exitCode) != 0:
             logger.info('Loading LaunchDaemon...')
             launchctl_enable = '/bin/launchctl load {}'.format(launch_daemon_location)
             runUtility(launchctl_enable)
