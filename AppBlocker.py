@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  AppBlocker.py
 # By:  Zack Thompson / Created:  9/21/2019
-# Version:  1.1.0 / Updated:  11/29/2021 / By:  ZT
+# Version:  1.1.1 / Updated:  11/7/2022 / By:  ZT
 #
 # Description:  This scripts creates a framework that allows the blocking of apps based on their bundle
 #               identifiers and pushing the "block list" via a custom configuration profile.
@@ -190,7 +190,7 @@ def main():
     ##################################################
     # Define Variables
 
-    os_minor_version = platform.mac_ver()[0].split('.')[1]
+    os_minor_version = int(platform.mac_ver()[0].split('.')[1])
     launch_daemon_label = preference_domain
     launch_daemon_location = '/Library/LaunchDaemons/{}.plist'.format(launch_daemon_label)
     script_location = '/usr/local/bin/AppBlocker'
