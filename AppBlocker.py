@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  AppBlocker.py
 # By:  Zack Thompson / Created:  9/21/2019
-# Version:  1.1.1 / Updated:  11/7/2022 / By:  ZT
+# Version:  1.1.2 / Updated:  11/8/2022 / By:  ZT
 #
 # Description:  This scripts creates a framework that allows the blocking of apps based on their bundle
 #               identifiers and pushing the "block list" via a custom configuration profile.
@@ -26,11 +26,14 @@ import signal
 import subprocess
 import sys
 
-from AppKit import *
+from AppKit import (
+    CFPreferencesCopyAppValue, NSAlert, NSApp, 
+    NSImage, NSInformationalAlertStyle, NSObject
+)
 from PyObjCTools import AppHelper
 
 
-__version__ = "1.1.0"
+__version__ = "1.1.2"
 
 
 def runUtility(command):
