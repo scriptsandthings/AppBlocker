@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  AppBlocker.py
 # By:  Zack Thompson / Created:  9/21/2019
-# Version:  1.1.2 / Updated:  11/8/2022 / By:  ZT
+# Version:  1.1.3 / Updated:  11/9/2022 / By:  ZT
 #
 # Description:  This scripts creates a framework that allows the blocking of apps based on their bundle
 #               identifiers and pushing the "block list" via a custom configuration profile.
@@ -33,7 +33,7 @@ from AppKit import (
 from PyObjCTools import AppHelper
 
 
-__version__ = "1.1.2"
+__version__ = "1.1.3"
 
 
 def runUtility(command):
@@ -90,7 +90,7 @@ def createDaemon(**parameters):
     # Create LaunchDaemon configuration in a dictionary
     launch_daemon_plist = {
     "Label" : launch_daemon_label,
-    'ProgramArguments' : ["/usr/bin/python", "{}".format(script_location), '--action', 'run', '--domain', launch_daemon_label],
+    'ProgramArguments' : [sys.executable, "{}".format(script_location), '--action', 'run', '--domain', launch_daemon_label],
     'KeepAlive' : True,
     'RunAtLoad' : True
     }
