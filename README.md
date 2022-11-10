@@ -18,7 +18,9 @@ All blocked launches are recorded in a log file found here:  `/var/log/AppBlocke
 ## Notification
 The **Title** and **Message** text are completely customizable and the icon will be pulled from the application bundle when it is launched; if an icon cannot be found, a default one will be used.
 
-<center><img src="https://github.com/mlbz521/AppBlocker/blob/master/Example Files/Sample Notification.png" width="50%" height="50%" /></center>
+<p align="center"><img src="https://github.com/mlbz521/AppBlocker/blob/master/Example Files/Sample Notification.png" width="50%" height="50%" /></p>
+
+<p align="center"><img src="https://github.com/mlbz521/AppBlocker/blob/master/Example Files/Sample Modern Notification.png"/></p>
 
 ## How to setup
 You'll need to create a plist file with a BlockedApps key with an array of dictionaries.  Details for each dictionary key:
